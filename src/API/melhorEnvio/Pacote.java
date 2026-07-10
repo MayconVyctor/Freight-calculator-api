@@ -1,3 +1,5 @@
+package API.melhorEnvio;
+
 public class Pacote {
     private double weight;
     private double width;

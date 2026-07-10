@@ -1,3 +1,5 @@
+package API.viaCep;
+
 public class Endereco {
     private String cep;
     private String localidade;

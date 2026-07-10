@@ -1,4 +1,6 @@
+package Consulta;
 
+import API.viaCep.Endereco;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

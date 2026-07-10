@@ -1,3 +1,5 @@
+package API.melhorEnvio;
+
 import com.google.gson.annotations.SerializedName;
 
 public class CotacaoRequest {

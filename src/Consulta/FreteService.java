@@ -1,3 +1,7 @@
+package Consulta;
+
+import API.melhorEnvio.CotacaoResposta;
+import API.melhorEnvio.Pacote;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
