@@ -9,6 +9,11 @@ public class CotacaoResposta {
         @SerializedName("delivery_time")
         private int deliveryTime;
         private Transportadora company;
+        private String error;
+
+    public String getError() {
+        return error;
+    }
 
     public String getId() {
         return id;
