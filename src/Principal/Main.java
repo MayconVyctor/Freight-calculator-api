@@ -4,6 +4,8 @@ import API.melhorEnvio.CotacaoResposta;
 import API.melhorEnvio.Pacote;
 import Consulta.FreteService;
 import Consulta.ViaCepService;
+import com.google.gson.JsonSyntaxException;
+import exceptions.CepInvalidoException;
 
 import java.io.IOException;
 import java.util.List;
@@ -41,6 +43,10 @@ public class Main {
             }
         }catch (InterruptedException | IOException e) {
             System.out.println("erro de conexao" + e.getMessage());
+        }catch (JsonSyntaxException e){
+            System.out.println("CEP invalido, por favor coloque no formato (00000000)");
+        }catch (CepInvalidoException e) {
+            System.out.println(e.getMessage());
         }
         System.out.println("Programa finalizado. Até mais!");
         input.close();
