@@ -17,6 +17,10 @@ public class ViaCepService {
         if (cep.length() <8){
             throw new CepInvalidoException("CEP invalido, por favor informe um formato correto (00000000) ");
         }
+        if (!cep.matches("\\d{8}")) {
+            throw new CepInvalidoException("CEP inválido, por favor informe um formato correto (00000000)");
+        }
+
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -25,7 +29,6 @@ public class ViaCepService {
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         String json = response.body();
-        System.out.println(json);
         Endereco enderecoProcessado = gson.fromJson(json, Endereco.class);
         if (enderecoProcessado.getErro() != null) {
             throw new CepInvalidoException("CEP infomando nao existe.");

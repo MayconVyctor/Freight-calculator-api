@@ -25,6 +25,10 @@ public class Main {
 
                 Pacote novoPacote = new Pacote(1,1,1,1);
 
+                ViaCepService viaCepService = new ViaCepService();
+                viaCepService.buscarEndereco(cepOrigemEncomenda);
+                viaCepService.buscarEndereco(cepDestinoEncomenda);
+
                 FreteService freteService = new FreteService();
                 System.out.println("Buscando cotações no Melhor Envio...");
                 List<CotacaoResposta> opcoesDeFrete = freteService.calcularFrete(cepOrigemEncomenda, cepDestinoEncomenda,novoPacote);
