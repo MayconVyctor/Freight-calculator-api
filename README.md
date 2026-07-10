@@ -18,6 +18,10 @@ Projeto desenvolvido como prática aplicada durante os estudos da trilha de Dese
 
 ![CEP não encontrado](docs/images/cep-nao-encontrado.png)
 
+**Tratamento de Pacote formato invalido:**
+
+![Pacote formato invalido](docs/images/tamanho-pacote-invalido.png)
+
 ## ⚙️ Como funciona
 
 1. O usuário informa o CEP de origem e destino da encomenda

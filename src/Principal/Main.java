@@ -8,6 +8,7 @@ import com.google.gson.JsonSyntaxException;
 import exceptions.CepInvalidoException;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,13 +18,28 @@ public class Main {
         String buscarCep = "";
         try {
             while(!buscarCep.equalsIgnoreCase("sair")){
+
+                System.out.println("Informe o peso do pacote (kg): ");
+                double peso = input.nextDouble();
+
+                System.out.println("Informe a altura do pacote (cm): ");
+                double altura = input.nextDouble();
+
+                System.out.println("Informe a largura do pacote (cm): ");
+                double largura = input.nextDouble();
+
+                System.out.println("Informe o comprimento do pacote (cm): ");
+                double comprimento = input.nextDouble();
+
+                Pacote novoPacote = new Pacote(peso, altura, largura, comprimento);
+
                 System.out.println("Digite o CEP de origem da encomenda: ");
                 String cepOrigemEncomenda = input.next();
 
                 System.out.println("Digite o CEP de destino da encomenda: ");
                 String cepDestinoEncomenda = input.next();
 
-                Pacote novoPacote = new Pacote(1,1,1,1);
+
 
                 ViaCepService viaCepService = new ViaCepService();
                 viaCepService.buscarEndereco(cepOrigemEncomenda);
@@ -51,6 +67,8 @@ public class Main {
             System.out.println("CEP invalido, por favor coloque no formato (00000000)");
         }catch (CepInvalidoException e) {
             System.out.println(e.getMessage());
+        } catch (InputMismatchException e){
+            System.out.println("Formato das dimencoes do pacote invalido, infome no formato de peso (0,30)");
         }
         System.out.println("Programa finalizado. Até mais!");
         input.close();
