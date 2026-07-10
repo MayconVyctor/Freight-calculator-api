@@ -22,7 +22,7 @@ public class ViaCepService {
         String json = response.body();
         System.out.println(json);
         Endereco enderecoProcessado = gson.fromJson(json, Endereco.class);
-        if (enderecoProcessado.erro != null) {
+        if (enderecoProcessado.getErro() != null) {
             System.out.println("CEP não encontrado.");
             return null;
         };
